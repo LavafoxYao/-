@@ -135,7 +135,8 @@ void merge(vector<int>& nums, int left, int mid, int right) {
     vector<int> tmp(right - left + 1, 0);
     int i = left, j = mid + 1, k = 0;
     while (i <= mid && j <= right) {
-        if (nums[i] < nums[j])
+      //这里一定要是<= 不然的归并排序就是不稳定排序了
+        if (nums[i] <= nums[j])
             tmp[k++] = nums[i++];
         else
             tmp[k++] = nums[j++];
